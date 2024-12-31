@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: APIドキュメント
+tags:
+  - name: 収支
+    description: 収支に関するAPI
+paths:
+  /monthly_balances:
+    get:
+      tags:
+        - 収支
+      summary: 月毎の収支を取得する
+      responses:
+        '200':
+          description: 月毎の収支
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  monthly_balances:
+                    type: array
+                    description: 月毎の収支
+                    items:
+                      type: object
+                      properties:
+                        month_year:
+                          type: string
+                          description: 年月
+                          example: 2025-01
+                        balance:
+                          type: integer
+                          description: 収支
+                          example: 10000
